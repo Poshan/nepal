@@ -1,4 +1,4 @@
-$(document).ready(function () {
+
   //console.log('inside the init');
   var bounds = new L.latLngBounds(config["north_east"], config["south_west"]);
   map = L.map(config["mapDOMId"],{
@@ -10,5 +10,3 @@ $(document).ready(function () {
   var zoomHome = new L.Control.zoomHome();
   zoomHome.addTo(map);
 
-
-});
