@@ -18,6 +18,8 @@
 		zoomControl:true
 	  }).setView(config["mapOptions"]["initialCenter"], config["mapOptions"]["zoomLevelMin"]);
 	  var mapbox = L.tileLayer(config["districtTiles"]);
+	  var vdc = L.tileLayer(config["vdcTiles"]);
+	  vdc.addTo(map);
 	  mapbox.addTo(map);
   </script>
 </body>
