@@ -21,6 +21,7 @@
 	  var vdc = L.tileLayer(config["vdcTiles"]);
 	  //vdc.addTo(map);
 	  districtTiles.addTo(map);
+	  var groups = L.layerGroup([mapbox,vdc]);
 	  var baseMaps = {
 		"Districts": mapbox,
 	  };
@@ -29,10 +30,10 @@
 		"VDCs": vdc
 	};
 	var options = {
-		collapsed: false
-	};
-	var layerControl = L.control.groupedLayers(baseMaps, overlayMaps, options);
-	layerControl.addTo(map);
+    collapsed: false
+  };
+	
+	L.control.layers(baseMaps, overlayMaps,options).addTo(map);
   </script>
 </body>
 </html>
