@@ -17,11 +17,10 @@
 	  map = L.map("map",{
 		zoomControl:true
 	  }).setView(config["mapOptions"]["initialCenter"], config["mapOptions"]["zoomLevelMin"]);
-	  var mapbox = L.tileLayer(config["districtTiles"]);
+	  var districtTiles = L.tileLayer(config["districtTiles"]);
 	  var vdc = L.tileLayer(config["vdcTiles"]);
 	  //vdc.addTo(map);
-	  //mapbox.addTo(map);
-	  var groups = L.layerGroup([mapbox,vdc]);
+	  districtTiles.addTo(map);
 	  var baseMaps = {
 		"Districts": mapbox,
 	  };
@@ -29,7 +28,11 @@
 	var overlayMaps = {
 		"VDCs": vdc
 	};
-	L.control.layers(baseMaps, overlayMaps).addTo(map);
+	var options = {
+		collapsed: false
+	};
+	var layerControl = L.control.groupedLayers(baseMaps, overlayMaps, options);
+	layerControl.addTo(map);
   </script>
 </body>
 </html>
