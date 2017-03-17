@@ -19,8 +19,17 @@
 	  }).setView(config["mapOptions"]["initialCenter"], config["mapOptions"]["zoomLevelMin"]);
 	  var mapbox = L.tileLayer(config["districtTiles"]);
 	  var vdc = L.tileLayer(config["vdcTiles"]);
-	  vdc.addTo(map);
-	  mapbox.addTo(map);
+	  //vdc.addTo(map);
+	  //mapbox.addTo(map);
+	  var groups = L.layerGroup([mapbox,vdc]);
+	  var baseMaps = {
+		"Districts": mapbox,
+	  };
+
+	var overlayMaps = {
+		"VDCs": vdc
+	};
+	L.control.layers(baseMaps, overlayMaps).addTo(map);
   </script>
 </body>
 </html>
