@@ -21,9 +21,9 @@
 	  var vdc = L.tileLayer(config["vdcTiles"]);
 	  //vdc.addTo(map);
 	  districtTiles.addTo(map);
-	  var groups = L.layerGroup([mapbox,vdc]);
+	  var groups = L.layerGroup([districtTiles,vdc]);
 	  var baseMaps = {
-		"Districts": mapbox,
+		"Districts": districtTiles,
 	  };
 
 	var overlayMaps = {
